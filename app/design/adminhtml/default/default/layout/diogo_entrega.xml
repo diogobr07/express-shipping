@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+    <diogo_entrega_adminhtml_destiny_index>
+	    <reference name="head">
+            <action method="setTitle" translate="title"><title>Express Shipping Settings</title></action>
+        </reference>
+        <reference name="content">
+            <block type="diogo_entrega/adminhtml_destiny"/>
+        </reference>
+    </diogo_entrega_adminhtml_destiny_index>
+</layout>

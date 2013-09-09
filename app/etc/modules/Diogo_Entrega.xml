@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<!-- declare Diogo_Entrega module -->
+		<Diogo_Entrega>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Diogo_Entrega>
+	</modules>
+</config>
