@@ -133,7 +133,16 @@
 					<file>diogo_entrega.xml</file>
 				</diogo_entrega>
 			</updates>
-		</layout>		
+		</layout>
+		<translate>
+			<modules>
+				<diogo_entrega>
+					<files>
+						<default>Diogo_Entrega.csv</default>
+					</files>
+				</diogo_entrega>
+			</modules>
+		</translate>
 	</adminhtml>
 	
 	<default>
