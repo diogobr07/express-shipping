@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<!-- declare Diogo_Pagamento module -->
+		<Diogo_Pagamento>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Diogo_Pagamento>
+	</modules>
+</config>

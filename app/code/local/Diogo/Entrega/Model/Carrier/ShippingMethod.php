@@ -30,6 +30,36 @@
 		if(!Mage::getStoreConfig('carriers/'.$this->_code.'/active')) {
 			return false;
 		}
+		
+		// this object will be returned as result of this method
+		// containing all the shipping rates of this method
+		$result = Mage::getModel('shipping/rate_result');
+		
+		//create new instance of method rated
+		$method = Mage::getModel('shipping/rate_result_method');
+		
+		//add free shipping via coupon code?
+		if(Mage::getStoreConfig('carriers/'.$this->_code.'/use_freeshipping_code')){
+			$quote = Mage::getModel('checkout/session')->getQuote();
+			if(Mage::getStoreConfig('carriers/'.$this->_code.'/freeshipping_code') == $quote->getCouponCode()){
+				
+				// record carrier information
+				$method->setCarrier($this->_code);
+				$method->setCarrierTitle(Mage::getStoreConfig('carriers/'.$this->_code.'/freeshipping_title'));
+				
+				// record method information
+				$method->setMethod($this->getConfigData('code_free_shipping/method'));
+				$method->setMethodTitle(Mage::getStoreConfig('carriers/'.$this->_code.'/freeshipping_methodtitle'));
+				
+				// record price
+				$method->setPrice($this->getConfigData('code_free_shipping/price'));
+				
+				// add this rate to the result
+				$result->append($method);
+				
+				return $result;
+			}
+		}
 
 		//check zip code
 		if($this->setZipCode($request->getDestPostcode()) === false){
@@ -44,15 +74,7 @@
 		
 		$destiny = Mage::getModel('diogo_entrega/destiny')->loadByZipCode($this->_toZip);
 		if($destiny->hasData()){
-			
 			//get necessary configuration values
-			
-			// this object will be returned as result of this method
-			// containing all the shipping rates of this method
-			$result = Mage::getModel('shipping/rate_result');
-			
-			//create new instance of method rated
-			$method = Mage::getModel('shipping/rate_result_method');
 			
 			// record carrier information
 			$method->setCarrier($this->_code);

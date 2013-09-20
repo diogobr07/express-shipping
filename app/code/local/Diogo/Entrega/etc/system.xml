@@ -32,11 +32,46 @@
                         <methodtitle translate="label">
                             <label>Description</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>12</sort_order>
+                            <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </methodtitle>						
+                        </methodtitle>
+						<use_freeshipping_code translate="label">
+							<label>Use Free Shipping Code</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_freeshipping_code>
+						<freeshipping_code translate="label comment">
+							<label>Free Shipping Code</label>
+							<comment><![CDATA[ This frre shipping method only will show if this code is applied]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>diogo_pagamento_adminhtml/system_config_source_rules</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</freeshipping_code>
+						<freeshipping_title translate="label">
+							<label>Free Shipping Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</freeshipping_title>
+						<freeshipping_methodtitle translate="label">
+							<label>Free Shipping Mehtod Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</freeshipping_methodtitle>
 					</fields>
 				</diogo_entrega>
 			</groups>

@@ -152,6 +152,13 @@
                 <active>1</active>
                 <model>Diogo_Entrega_Model_Carrier_ShippingMethod</model>
                 <title>Diogo Entrega</title>
+				
+				<!-- USE CODE FREE SHIPPING -->
+				<code_free_shipping>
+					<method>local</method>
+					<price>0</price>
+				</code_free_shipping>
+				
 			</diogo_entrega>
 		</carriers>
 	</default>

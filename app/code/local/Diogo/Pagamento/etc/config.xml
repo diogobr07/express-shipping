@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<!-- declare module's version information -->
+		<Diogo_Pagamento>
+			<!-- this version will be used for database upgrades -->
+			<version>0.1.0</version>
+			<depends>
+                <Mage_Payment />
+            </depends>
+		</Diogo_Pagamento>
+	</modules>
+	
+	<global>
+		<!-- declare model group for new module -->
+		<models>
+			<!--model group alias to be used in Mage::getModel() -->
+			<diogo_pagamento>
+				<!-- base class name for the model group -->
+				<class>Diogo_Pagamento_Model</class>
+				<resourceModel>diogo_pagamento_mysql4</resourceModel>
+			</diogo_pagamento>
+			
+			<!-- declarce your resourcemodel database table entities -->
+			<diogo_pagamento_mysql4>
+				<class>Diogo_Pagamento_Model_Mysql4</class>
+				<entities>
+					<!-- add entitties here
+					<enitity>
+						<table>table_name</table>
+					</entity>
+					-->
+				</entities>
+			</diogo_pagamento_mysql4>
+			
+			<diogo_pagamento_adminhtml>
+				<class>Diogo_Pagamento_Adminhtml_Model</class>
+			</diogo_pagamento_adminhtml>
+		</models>
+
+		<!-- declare helper group alias to be used in Mage::getHelper() -->
+		<helpers>
+            <diogo_pagamento>
+                <class>Diogo_Pagamento_Helper</class>
+            </diogo_pagamento>
+        </helpers>
+		
+		<!-- declare block group -->
+		<blocks>
+			<diogo_pagamento>
+				<class>Diogo_Pagamento_Block</class>
+			</diogo_pagamento>
+		</blocks>
+		
+		<!-- declare resource setup for new module -->
+		<resources>
+			<!-- resource identifier -->
+			<diogo_pagamento_setup>
+				<!-- specify that this resource is a setup resource and used for upgrade -->
+				<setup>
+					<module>Diogo_Pagamento</module>
+				</setup>
+				
+				<!-- specify database connection for this resource -->
+				<connection>
+					<!-- do not create new connection, use predefined core setup connection -->
+					<use>core_setup</use>
+				</connection>
+				
+			</diogo_pagamento_setup>
+			
+			<diogo_pagamento_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</diogo_pagamento_read>
+			
+			<diogo_pagamento_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</diogo_pagamento_write>
+			
+		</resources>
+		
+	</global>
+	
+	<default>
+		<payment>
+			<diogo_pagamento>
+			    <!-- GENERAL -->
+                <active>0</active>
+                <model>Diogo_Pagamento_Model_Payment_PaymentMethod</model>
+              	<title>Diogo Pagamento</title>	
+			</diogo_pagamento>
+		</payment>
+	</default>
+
+</config>
